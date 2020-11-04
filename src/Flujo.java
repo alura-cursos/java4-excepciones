@@ -11,22 +11,18 @@ public class Flujo {
         System.out.println("Inicio de metodo1");
         try {
             metodo2();
-        } catch(ArithmeticException ex) {
-            System.out.println("ArithmeticException");
+        } catch(ArithmeticException | NullPointerException ex) {
+            String msg = ex.getMessage();
+            System.out.println("Exception " + msg);
+            ex.printStackTrace();
         }
         System.out.println("Fin de metodo1");
     }
 
     private static void metodo2() {
         System.out.println("Inicio de metodo2");
-        for(int i = 1; i <= 5; i++) {
-            System.out.println(i);
-            int a = i / 0;
-        }
-        Cuenta c = null;
-        c.deposita();
-        
-        System.out.println("Fin de metodo2");
+        throw new ArithmeticException("dio error");
+        // System.out.println("Fin de metodo2");
     }
 
 	
