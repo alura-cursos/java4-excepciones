@@ -9,7 +9,11 @@ public class Flujo {
 
     private static void metodo1() {
         System.out.println("Inicio de metodo1");
-        metodo2();
+        try {
+            metodo2();
+        } catch(ArithmeticException ex) {
+            System.out.println("ArithmeticException");
+        }
         System.out.println("Fin de metodo1");
     }
 
@@ -17,8 +21,11 @@ public class Flujo {
         System.out.println("Inicio de metodo2");
         for(int i = 1; i <= 5; i++) {
             System.out.println(i);
+            int a = i / 0;
         }
-        int a = i / 0;
+        Cuenta c = null;
+        c.deposita();
+        
         System.out.println("Fin de metodo2");
     }
 
